@@ -4,6 +4,7 @@
 
 #less
 *.less
+less.js
 
 #node
 node_modules
