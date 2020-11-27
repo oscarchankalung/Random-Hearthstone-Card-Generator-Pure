@@ -2,6 +2,9 @@
 .eslintrc.json
 .stylelintrc.json
 
+#less
+*.less
+
 #node
 node_modules
 package-lock.json
