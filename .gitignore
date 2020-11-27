@@ -2,10 +2,6 @@
 .eslintrc.json
 .stylelintrc.json
 
-#less
-*.less
-less.js
-
 #node
 node_modules
 package-lock.json
