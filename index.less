@@ -134,25 +134,18 @@ body {
   overflow-y: scroll;
   &::after {
     content: '';
-    width: 200px;
     padding: 10px;
   }
   @media (max-width: @size[narrow]) {
     flex-direction: row;
-    height: 320px;
+    height: 330px;
     width: 100%;
     padding: 10px 30px 10px 20px;
     overflow-x: scroll;
     overflow-y: hidden;
-    &::after {
-      content: '';
-      width: auto;
-      height: inherit;
-      padding: 10px;
-    }
   }
   @media (max-width: @size[mobile]) {
-    height: 305px;
+    height: 310px;
   }
   .history {
     width: 200px;
@@ -203,7 +196,7 @@ body {
     }
     @media (max-width: @size[mobile]) {
       width: 100%;
-      padding: 0px 0px 0px 20px;
+      padding: 0px 0px 0px 15px;
     }
   }
   .left {
@@ -247,7 +240,7 @@ body {
     }
     @media (max-width: @size[mobile]) {
       width: 100%;
-      padding: 0px 0px 0px 20px;
+      padding: 0px 0px 0px 15px;
     }
   }
 }
