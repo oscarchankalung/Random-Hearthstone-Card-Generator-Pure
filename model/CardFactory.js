@@ -11,7 +11,7 @@ function CardFactory () {
 
 CardFactory.prototype.setToken = async function () {
   const params = new URLSearchParams();
-  params.append('grant_type', 'client_credential');
+  params.append('grant_type', 'client_credentials');
   params.append('client_id', this.client_id);
   params.append('client_secret', this.client_secret);
 
