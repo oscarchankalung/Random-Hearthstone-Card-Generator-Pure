@@ -11,7 +11,7 @@ function CardFactory () {
 
 CardFactory.prototype.setToken = async function () {
   const params = new URLSearchParams();
-  params.append('grant_type', 'client_credentials');
+  params.append('grant_type', 'client_credential');
   params.append('client_id', this.client_id);
   params.append('client_secret', this.client_secret);
 
@@ -22,7 +22,8 @@ CardFactory.prototype.setToken = async function () {
   });
 
   if (!response.ok) {
-    throw new HttpError(response, 'Fail to retrieve access token');
+    const json = await response.json();
+    throw new HttpError(response, 'Fail to retrieve access token', json);
   } else {
     const json = await response.json();
     this.access_token = json.access_token;
@@ -73,6 +74,8 @@ CardFactory.init = async function () {
     await cardFactory.setCardCount();
   } catch (error) {
     console.log(`${error.name}: ${error.message}`);
+    console.log(`error: ${error.body.error}`);
+    console.log(`error_description: ${error.body.error_description}`);
   }
   return cardFactory;
 };

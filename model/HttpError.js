@@ -1,8 +1,9 @@
-function HttpError (response, message) {
+function HttpError (response, message, body) {
   const instance = new Error(response, message);
   instance.name = 'HttpError';
   instance.response = response;
   instance.message = message;
+  instance.body = body;
   Object.setPrototypeOf(instance, Object.getPrototypeOf(this));
   if (Error.captureStackTrace) {
     Error.captureStackTrace(instance, HttpError);
