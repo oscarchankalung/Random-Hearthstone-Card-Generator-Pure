@@ -1,8 +1,4 @@
-function HttpError (response, message) {
-  Error.call(this, message);
-  this.name = 'HttpError';
-  this.response = response;
-};
+import HttpError from './HttpError.js';
 
 function CardFactory () {
   this.client_id = 'f5ef9bd3e2444bfaba636329f2438a82';
@@ -72,8 +68,12 @@ CardFactory.prototype.getCard = async function (cardPage) {
 
 CardFactory.init = async function () {
   const cardFactory = new CardFactory();
-  await cardFactory.setToken();
-  await cardFactory.setCardCount();
+  try {
+    await cardFactory.setToken();
+    await cardFactory.setCardCount();
+  } catch (error) {
+    console.log(`${error.name}: ${error.message}`);
+  }
   return cardFactory;
 };
 
